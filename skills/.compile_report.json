@@ -1,0 +1,223 @@
+{
+  "compile_memory_path": "skills/.evidence/memory.md",
+  "compiled_package_id": "openems",
+  "evidence": {
+    "core_skills": [
+      "openems-getting-started",
+      "openems-api-and-scripting"
+    ],
+    "evidence_dir": "skills/.evidence",
+    "files": [
+      "skills/.evidence/openems-getting-started.md",
+      "skills/.evidence/openems-api-and-scripting.md"
+    ]
+  },
+  "generation": {
+    "docs_only": false,
+    "generator_script": "sci-skills-generator/scripts/generate_skills_folder.py",
+    "max_skills": 30,
+    "return_code": 0,
+    "status": "ok"
+  },
+  "mode": "compile",
+  "pass_scope_diffs": {
+    "pass_2": {
+      "added": [],
+      "changed": [
+        "skills/openems-api-and-scripting/SKILL.md",
+        "skills/openems-api-and-scripting/references/source_map.md",
+        "skills/openems-getting-started/SKILL.md",
+        "skills/openems-getting-started/references/source_map.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "skills/openems-api-and-scripting/SKILL.md",
+        "skills/openems-api-and-scripting/references/source_map.md",
+        "skills/openems-getting-started/SKILL.md",
+        "skills/openems-getting-started/references/source_map.md"
+      ]
+    },
+    "pass_3": {
+      "added": [
+        "skills/.compile_report.json",
+        "skills/.evidence/memory.md"
+      ],
+      "changed": [
+        "skills/.compile_report.json",
+        "skills/.evidence/memory.md",
+        "skills/openems-api-and-scripting/SKILL.md",
+        "skills/openems-api-and-scripting/references/doc_map.md",
+        "skills/openems-api-and-scripting/references/source_map.md",
+        "skills/openems-getting-started/SKILL.md",
+        "skills/openems-getting-started/references/doc_map.md",
+        "skills/openems-getting-started/references/source_map.md",
+        "skills/openems-index/SKILL.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "skills/openems-api-and-scripting/SKILL.md",
+        "skills/openems-api-and-scripting/references/doc_map.md",
+        "skills/openems-api-and-scripting/references/source_map.md",
+        "skills/openems-getting-started/SKILL.md",
+        "skills/openems-getting-started/references/doc_map.md",
+        "skills/openems-getting-started/references/source_map.md",
+        "skills/openems-index/SKILL.md"
+      ]
+    }
+  },
+  "passes": [
+    {
+      "pass": 1,
+      "return_code": 0,
+      "status": "ok"
+    },
+    {
+      "pass": 2,
+      "return_code": 0,
+      "status": "ok"
+    },
+    {
+      "pass": 3,
+      "return_code": 0,
+      "status": "ok"
+    }
+  ],
+  "profile": {
+    "docs_dirs": [
+      "python/doc"
+    ],
+    "docs_only": false,
+    "notes": [
+      "Primary structured docs are in python/doc (RST).",
+      "Root documentation files exist (README, INSTALL, NEWS, TODO, known_*), but compile profile tracks directories only.",
+      "Core entry files main.cpp/openems.cpp/openems.h/openems_global.h are at repo root and should be referenced manually in later passes.",
+      "Explicit test_dirs include TESTSUITE because default heuristic only matches test/tests names."
+    ],
+    "package_name": "openems",
+    "profile_path": "skills/.compile_profile.json",
+    "profile_source": "file",
+    "source_dirs": [
+      "Analyse",
+      "Common",
+      "FDTD",
+      "cmake",
+      "matlab",
+      "nf2ff",
+      "tools",
+      "python/openEMS"
+    ],
+    "test_dirs": [
+      "TESTSUITE",
+      "python/Tests",
+      ".github/smoketests"
+    ],
+    "tutorial_dirs": [
+      "matlab/Tutorials",
+      "matlab/examples",
+      "python/Tutorials",
+      "python/doc/Tutorials"
+    ],
+    "warnings": []
+  },
+  "project_root": "/mnt/home/taoeli/fermilink_repos/.fermilink-auto-compile/openems-openems",
+  "run_id": "compile_20260301T075748844924Z",
+  "skill_plan": {
+    "available_skill_ids": [
+      "openems-api-and-scripting",
+      "openems-getting-started",
+      "openems-index"
+    ],
+    "core_skill_ids": [
+      "openems-getting-started",
+      "openems-api-and-scripting"
+    ],
+    "deferred_gaps": [
+      "Top-level docs are mostly extensionless files and are not auto-ingested by doc-extension filters.",
+      "Root-level core source files (main.cpp/openems.cpp/openems.h/openems_global.h) are outside directory-only source profiling and need manual references in enriched skills.",
+      "Formal docs are concentrated in python/doc, so additional topic breadth will rely on tutorial/test/source synthesis in pass 2."
+    ],
+    "goal": "Passes 2/3: generate deterministic openEMS skills and enrich high-impact workflows from docs plus examples/tests.",
+    "mode": "compile",
+    "priority_skills": [
+      {
+        "action": "create",
+        "must_cover": [
+          "Docs-first routing to topic skills",
+          "Tutorial and test entry points for quick verification",
+          "Escalation rules from docs to source inspection"
+        ],
+        "reason": "Top-level routing is required before topic enrichment and should reflect docs, tutorials, tests, and source escalation paths.",
+        "skill_id": "openems-index",
+        "source_hints": [
+          "python/doc/index.rst",
+          "python/README.md",
+          "matlab/Tutorials",
+          "TESTSUITE",
+          "python/openEMS"
+        ]
+      },
+      {
+        "action": "refresh",
+        "must_cover": [
+          "Minimal first simulation in Python and Matlab/Octave",
+          "Environment and dependency prerequisites",
+          "Smoke-test style verification"
+        ],
+        "reason": "First-run setup for Python and Matlab/Octave is the most common onboarding path.",
+        "skill_id": "openems-getting-started",
+        "source_hints": [
+          "python/README.md",
+          "python/doc/openEMS.rst",
+          "python/doc/Tutorials/Intro_Tutorials.rst",
+          ".github/smoketests"
+        ]
+      },
+      {
+        "action": "create",
+        "must_cover": [
+          "C++ build and dependency flow",
+          "Python extension build/install path",
+          "Common install and linkage failure checks"
+        ],
+        "reason": "Build/install guidance is high impact and currently spread across CMake roots and Python installation docs.",
+        "skill_id": "openems-api-and-scripting",
+        "source_hints": [
+          "CMakeLists.txt",
+          "cmake/Modules",
+          "python/README.md",
+          "python/doc/index.rst"
+        ]
+      }
+    ],
+    "version": 1,
+    "warnings": []
+  },
+  "skill_plan_path": "skills/.evidence/skill_plan.json",
+  "validation": {
+    "core_skills_checked": [
+      "openems-getting-started",
+      "openems-api-and-scripting"
+    ],
+    "docs_only": false,
+    "errors": [
+      "/mnt/home/taoeli/fermilink_repos/.fermilink-auto-compile/openems-openems/skills/openems-getting-started/SKILL.md: playbook missing required element containing 'convergence/validation'.",
+      "/mnt/home/taoeli/fermilink_repos/.fermilink-auto-compile/openems-openems/skills/openems-api-and-scripting/SKILL.md: playbook missing required element containing 'convergence/validation'."
+    ],
+    "index_skills": [
+      "openems-index"
+    ],
+    "missing_planned_skills": [],
+    "ok": false,
+    "planned_skill_ids": [
+      "openems-index",
+      "openems-getting-started",
+      "openems-api-and-scripting"
+    ],
+    "previous_source_inventory": {},
+    "skills_total": 3,
+    "source_inventory": {},
+    "source_links_total": 12,
+    "topic_skills": 2,
+    "warnings": []
+  }
+}
